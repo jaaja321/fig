@@ -1,3 +1,32 @@
+export let Ru = {
+    p: 'ru',
+    col: 'Цвет',
+    sex: 'Пол',
+    cat: 'Категория',
+    id: 'Код',
+    isIn: 'В наличии',
+    price: 'Цена',
+    sex: 'Пол',
+    sex: 'Пол',
+    sex: 'Пол',
+    sex: 'Пол',
+    sex: 'Пол',
+}
+export let Ua = {
+    p: 'ua',
+    col: 'qwe',
+    sex: 'wqe',
+    cat: 'weqeqw',
+    id: 'qwwqe',
+    isIn: 'В наличии',
+    price: 'Цена',
+    sex: 'Пол',
+    sex: 'Пол',
+    sex: 'Пол',
+    sex: 'Пол',
+    sex: 'Пол',
+}
+
 export let col = [`Коричневый`,
 `Черный`,
 `Серый`,

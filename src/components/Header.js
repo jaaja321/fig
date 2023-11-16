@@ -59,8 +59,15 @@ export default function Header(props) {
         <p className='font-bold relative'>({props.curitems.length})</p>
       </div>
       <p onClick={() => props.setOpen()} className={`text-center m-auto font-bold sm:opacity-100 sm:w-full opacity-0 w-0`}>{head()}</p>
-        <div className='mr-[1%] my-auto w-[40%] flex'>
-          <input onChange={(e) => type(e.target.value)} value={text} className='rounded-lg border-2 ml-[50%] w-[80%] border-gray-300 md:h-[6vh] xl:h-[7vh]' placeholder='Поиск' id='input'></input>
+      <div className='flex items-center'>
+      <div className='flex my-auto'>
+        <p onClick={() => props.setLang('ua')} className={`${props.lang.p == 'ua' ? 'opacity-100' : 'opacity-50'}`}>UA</p>
+        <p>|</p>
+        <p onClick={() => props.setLang('ru')} className={`${props.lang.p == 'ru' ? 'opacity-100' : 'opacity-50'}`}>RU</p>
+      </div>
+        <div className='mx-[1%] ml-[2%] my-auto flex'>
+          <input onChange={(e) => type(e.target.value)} value={text} className='rounded-lg w-full border-2 border-gray-300 md:h-[6vh] xl:h-[7vh]' placeholder='Поиск' id='input'></input>
+      </div>
       </div>
     </div>
     </div>

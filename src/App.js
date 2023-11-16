@@ -1,6 +1,6 @@
 import './main.css';
 import './style.css';
-import { list,col } from './list.js';
+import { list,col,Ru,Ua } from './list.js';
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
@@ -11,7 +11,10 @@ export class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      lang: 'ru',
+      langP: 'ru',
+      ru: Ru,
+      ua: Ua,
+      lang: Ru,
       allcat: [
       'Эксклюзивные очки',
       'Спортивные очки',
@@ -51,14 +54,14 @@ export class App extends Component {
     this.delitem = this.delitem.bind(this)
     this.setOpen = this.setOpen.bind(this)
     this.setCat = this.setCat.bind(this)
-
+    this.setLang = this.setLang.bind(this)
   }
   render() {
     return (
       <div className='text-red-400'>
-        <Header setOpen={this.setOpen} delitem={this.delitem} open={this.state.open} curitems={this.state.curitems} search={this.search} curstate={this.state.curstate} curcat={this.state.curcat} addItem={this.addItem}/>
-        <Nav fil={this.state.fil} allcat={this.state.allcat} colors={this.state.colors} allCheck={this.allCheck} curcol={this.state.curcol} colCheck={this.colCheck} setOpen={this.setOpen} open={this.state.open} itemsCat={this.state.itemsCat} items={this.state.items} categories={this.state.categories}/>
-        <Main fil={this.state.fil} allCheck={this.allCheck} y={this.state.y} setCat={this.setCat} allcat={this.state.allcat} colors={this.state.colors} curcol={this.state.curcol} curitems={this.state.curitems} curcat={this.state.curcat} open={this.state.open} addItem={this.addItem} items = {this.state.items} search={this.state.search}/>
+        <Header setLang={this.setLang} lang={this.state.lang} langP={this.state.langP} setOpen={this.setOpen} delitem={this.delitem} open={this.state.open} curitems={this.state.curitems} search={this.search} curstate={this.state.curstate} curcat={this.state.curcat} addItem={this.addItem}/>
+        <Nav fil={this.state.fil} allcat={this.state.allcat} colors={this.state.colors} allCheck={this.allCheck} curcol={this.state.curcol} colCheck={this.colCheck} setOpen={this.setOpen} open={this.state.open} itemsCat={this.state.itemsCat} items={this.state.items} categories={this.state.categories} ru={this.state.ru}/>
+        <Main langP={this.state.langP} fil={this.state.fil} allCheck={this.allCheck} y={this.state.y} setCat={this.setCat} allcat={this.state.allcat} colors={this.state.colors} curcol={this.state.curcol} curitems={this.state.curitems} curcat={this.state.curcat} open={this.state.open} addItem={this.addItem} items = {this.state.items} lang={this.state.lang} search={this.state.search}/>
       </div>
     )
   }
@@ -100,6 +103,16 @@ export class App extends Component {
     this.setState({items: result})
     this.setState({itemsCat: result})
     window.scrollTo(0,0)
+  }
+
+  setLang(p){
+    this.setState({langP: p})
+    console.log(p)
+    if (p == 'ru'){
+      this.setState({lang: this.state.ru})
+    } else {
+      this.setState({lang: this.state.ua})
+    }
   }
 
   search(text){

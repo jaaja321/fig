@@ -5,6 +5,7 @@ import { RiShoppingBasket2Fill } from 'react-icons/ri'
 export default function Info(props) {
 
   let [select, setSelect] = useState(props.item.selected)
+  let [text, setText] = useState('')
 
   const addItem = () => {
     let isIn = false
@@ -43,13 +44,13 @@ export default function Info(props) {
         <div className='flex flex-col justify-center w-[100%]'>
           <ul className='h-[100%] mx-[10%] mr-[10vh]'>
             <li className='font-bold text-[98%] border-b border-black text-center'>{props.item.title}</li>
-            <li><span className='text-red-800'>Категория:</span> {props.item.cat}</li>
-            <li><span className='text-red-800'>Пол:</span> {sex()}</li>
-            <li><span className='text-red-800'>Цвет:</span> {props.item.col}</li>
-            <li><span className='text-red-800'>В наличии:</span> {props.item.isin}</li>
-            <li><span className='text-red-800'>Ключ:</span> {props.item.id}</li>
+            <li><span className='text-red-800'>{props.lang.cat}:</span> {props.item.cat}</li>
+            <li><span className='text-red-800'>{props.lang.sex}:</span> {sex()}</li>
+            <li><span className='text-red-800'>{props.lang.col}:</span> {props.item.col}</li>
+            <li><span className='text-red-800'>{props.lang.isIn}:</span> {props.item.isin}</li>
+            <li><span className='text-red-800'>{props.lang.id}:</span> {props.item.id}</li>
           </ul>
-          <p className='font-bold mx-auto'>Цена: {props.item.price}$</p>
+          <p className='font-bold mx-auto'>{props.lang.price}: {props.item.price}$</p>
           <p onClick={() => addItem(props.item)} className={`flex justify-center p-4 ml-2 border border-black rounded-lg hover:bg-gray-800 transition-all ${select && 'bg-gray-700'}`}><span className={`mx-2 font-bold`}>{`${!select ? 'Добавить в корзину' : 'Убрать из корзины'}`}</span></p>
         </div>
         <div className='absolute right-2 p-4 border border-black rounded-lg hover:bg-gray-800 transition-all' id='but'><IoMdClose onClick={() => props.info()} className='scale-[2]'/></div>

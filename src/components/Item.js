@@ -10,7 +10,7 @@ import { PiBabyBold } from 'react-icons/pi'
 export default function Item(props) {
     let [show, setShow] = useState(false)
     let [select, setSelect] = useState(false)
-
+    let [text, setText] = useState('')
     let sel = <IoMdClose className='scale-150'/>
     let unsel = <RiShoppingBasket2Fill className='scale-150'/>
 
@@ -60,7 +60,7 @@ export default function Item(props) {
               <div onClick={() => addItem()} className={`flex p-4 border border-black rounded-lg hover:bg-gray-800 transition-all ${props.item.selected && 'bg-gray-700'}`} id='but'>{props.item.selected ? sel : unsel}</div>
             </div>
         </div>
-        {show ? <Info colors={props.colors} item={props.item} show={show} info={info} addItem={props.addItem} curitems={props.curitems}/> : null}
+        {show ? <Info langP={props.langP} text={text} colors={props.colors} item={props.item} show={show} info={info} addItem={props.addItem} curitems={props.curitems} lang={props.lang}/> : null}
     </div>
   )
 }
